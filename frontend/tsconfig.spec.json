@@ -12,7 +12,11 @@
     "src/polyfills.ts"
   ],
   "include": [
+<<<<<<< HEAD
     "src/**/dh2p-shop-validators.spec.ts",
+=======
+    "src/**/*.spec.ts",
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
     "src/**/*.d.ts"
   ]
 }

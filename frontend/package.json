@@ -41,14 +41,20 @@
     "@typescript-eslint/parser": "5.29.0",
     "eslint": "^8.18.0",
     "jasmine-core": "~4.1.0",
+<<<<<<< HEAD
     "jasmine-spec-reporter": "^7.0.0",
+=======
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+<<<<<<< HEAD
     "protractor": "^7.0.0",
     "ts-node": "^10.9.1",
+=======
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
     "typescript": "~4.7.2"
   }
 }

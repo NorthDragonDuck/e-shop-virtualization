@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+<<<<<<< HEAD
 import { Dh2pShopFormService } from 'src/app/services/dh2p-shop-form.service';
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
 import { Dh2pShopValidators } from 'src/app/validators/dh2p-shop-validators';
+=======
+import { Luv2ShopFormService } from 'src/app/services/luv2-shop-form.service';
+import { Country } from 'src/app/common/country';
+import { State } from 'src/app/common/state';
+import { Luv2ShopValidators } from 'src/app/validators/luv2-shop-validators';
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
 import { CartService } from 'src/app/services/cart.service';
 import { CheckoutService } from 'src/app/services/checkout.service';
 import { Router } from '@angular/router';
@@ -32,7 +39,11 @@ export class CheckoutComponent implements OnInit {
   billingAddressStates: State[] = [];
     
   constructor(private formBuilder: FormBuilder,
+<<<<<<< HEAD
               private luv2ShopFormService: Dh2pShopFormService,
+=======
+              private luv2ShopFormService: Luv2ShopFormService,
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
               private cartService: CartService,
               private checkoutService: CheckoutService,
               private router: Router) { }
@@ -46,18 +57,27 @@ export class CheckoutComponent implements OnInit {
         firstName: new FormControl('', 
                               [Validators.required, 
                                Validators.minLength(2), 
+<<<<<<< HEAD
                                Dh2pShopValidators.notOnlyWhitespace]),
+=======
+                               Luv2ShopValidators.notOnlyWhitespace]),
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
 
         lastName:  new FormControl('', 
                               [Validators.required, 
                                Validators.minLength(2), 
+<<<<<<< HEAD
                                Dh2pShopValidators.notOnlyWhitespace]),
+=======
+                               Luv2ShopValidators.notOnlyWhitespace]),
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
                                
         email: new FormControl('',
                               [Validators.required, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
       }),
       shippingAddress: this.formBuilder.group({
         street: new FormControl('', [Validators.required, Validators.minLength(2), 
+<<<<<<< HEAD
                                      Dh2pShopValidators.notOnlyWhitespace]),
         city: new FormControl('', [Validators.required, Validators.minLength(2), 
                                    Dh2pShopValidators.notOnlyWhitespace]),
@@ -75,11 +95,34 @@ export class CheckoutComponent implements OnInit {
         country: new FormControl('', [Validators.required]),
         zipCode: new FormControl('', [Validators.required, Validators.minLength(2), 
                                       Dh2pShopValidators.notOnlyWhitespace])
+=======
+                                     Luv2ShopValidators.notOnlyWhitespace]),
+        city: new FormControl('', [Validators.required, Validators.minLength(2), 
+                                   Luv2ShopValidators.notOnlyWhitespace]),
+        state: new FormControl('', [Validators.required]),
+        country: new FormControl('', [Validators.required]),
+        zipCode: new FormControl('', [Validators.required, Validators.minLength(2), 
+                                      Luv2ShopValidators.notOnlyWhitespace])
+      }),
+      billingAddress: this.formBuilder.group({
+        street: new FormControl('', [Validators.required, Validators.minLength(2), 
+                                     Luv2ShopValidators.notOnlyWhitespace]),
+        city: new FormControl('', [Validators.required, Validators.minLength(2), 
+                                   Luv2ShopValidators.notOnlyWhitespace]),
+        state: new FormControl('', [Validators.required]),
+        country: new FormControl('', [Validators.required]),
+        zipCode: new FormControl('', [Validators.required, Validators.minLength(2), 
+                                      Luv2ShopValidators.notOnlyWhitespace])
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
       }),
       creditCard: this.formBuilder.group({
         cardType: new FormControl('', [Validators.required]),
         nameOnCard:  new FormControl('', [Validators.required, Validators.minLength(2), 
+<<<<<<< HEAD
                                           Dh2pShopValidators.notOnlyWhitespace]),
+=======
+                                          Luv2ShopValidators.notOnlyWhitespace]),
+>>>>>>> a5745e77af794dec70fcfee97509fb7bb17f4e6a
         cardNumber: new FormControl('', [Validators.required, Validators.pattern('[0-9]{16}')]),
         securityCode: new FormControl('', [Validators.required, Validators.pattern('[0-9]{3}')]),
         expirationMonth: [''],
