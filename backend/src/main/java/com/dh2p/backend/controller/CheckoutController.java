@@ -6,7 +6,7 @@ import com.dh2p.backend.service.CheckoutService;
 import org.springframework.web.bind.annotation.*;
 
 
-@CrossOrigin("http://frontend:4200")
+@CrossOrigin("http://vhost1.localhost")
 @RestController
 @RequestMapping("/api/checkout")
 public class CheckoutController {

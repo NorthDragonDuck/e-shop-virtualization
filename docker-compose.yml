@@ -33,8 +33,18 @@ services:
       POSTGRES_DB: dh2p_database
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/10-init-postgress.sql
+      - ./scripts/init-postgres.sql:/docker-entrypoint-initdb.d/10-init-postgres.sql
       - ./scripts/insert-data.sql:/docker-entrypoint-initdb.d/20-insert-data.sql
+    networks:
+      - net1
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
     networks:
       - net1
 
@@ -42,6 +52,7 @@ services:
     container_name: vhost1
     build: ./vhost1
     depends_on:
+      - pgadmin
       - backend
       - frontend
     networks:

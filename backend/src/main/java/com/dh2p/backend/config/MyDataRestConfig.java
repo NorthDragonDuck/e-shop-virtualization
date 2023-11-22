@@ -40,7 +40,7 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
 
         // Configure CORS globally
         cors.addMapping("/**") // You can restrict paths with more specific patterns
-            .allowedOrigins("http://frontend:4200") // or use allowedOriginPatterns to define a pattern
+            .allowedOrigins("http://vhost1.localhost") // or use allowedOriginPatterns to define a pattern
             .allowedMethods("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS")
             .allowedHeaders("*")
             .allowCredentials(true);

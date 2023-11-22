@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import com.dh2p.backend.model.Product;
 import com.dh2p.backend.service.ProductService;
 
-@CrossOrigin
+@CrossOrigin("http://vhost1.localhost")
 @RestController
 @RequestMapping("/api/products")
 public class ProductController {
@@ -19,6 +19,7 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Product product = productService.getProductById(id);
+        System.out.println(product);
         if(product != null) {
             return ResponseEntity.ok(product);
         } else {
