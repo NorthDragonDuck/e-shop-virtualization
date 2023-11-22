@@ -1,0 +1,259 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet id="release-0.0.0:0" author="me">
+        <comment>Create table for storing user data</comment>
+        <!-- <createTable tableName="users">
+            <column name="id" type="UUID" />
+            <column name="username" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="role" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="enabled" type="boolean" defaultValue="true">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="users" />
+        </rollback> -->
+    </changeSet>
+
+    <changeSet id="1" author="me">
+        <comment>Create product_category table</comment>
+        <createTable tableName="product_category">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_product_category"/>
+            </column>
+            <column name="category_name" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="product_category"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ChangeSet for product table -->
+    <changeSet id="2" author="me">
+        <comment>Create product table</comment>
+        <createTable tableName="product">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_product"/>
+            </column>
+            <column name="sku" type="varchar(255)"/>
+            <column name="name" type="varchar(255)"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="unit_price" type="decimal(13,2)"/>
+            <column name="image_url" type="varchar(255)"/>
+            <column name="active" type="boolean" defaultValueBoolean="true"/>
+            <column name="units_in_stock" type="int"/>
+            <column name="date_created" type="timestamp"/>
+            <column name="last_updated" type="timestamp"/>
+            <column name="category_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_category"
+                                baseTableName="product"
+                                baseColumnNames="category_id"
+                                referencedTableName="product_category"
+                                referencedColumnNames="id"/>
+        <rollback>
+            <dropTable tableName="product"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="3" author="me">
+        <comment>Create country table</comment>
+        <createTable tableName="country">
+            <column name="id" type="smallint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="code" type="varchar(2)"/>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="country"/>
+        </rollback>
+    </changeSet>
+
+    <changeSet id="4" author="me">
+        <comment>Create state table</comment>
+        <createTable tableName="state">
+            <column name="id" type="smallint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+            <column name="country_id" type="smallint">
+                <constraints nullable="false" referencedTableName="country" referencedColumnNames="id" foreignKeyName="fk_country"/>
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="state"/>
+        </rollback>
+    </changeSet>
+
+
+    <changeSet id="5" author="yourName">
+        <comment>Create address table</comment>
+        <createTable tableName="address">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="city" type="varchar(255)"/>
+            <column name="country" type="varchar(255)"/>
+            <column name="state" type="varchar(255)"/>
+            <column name="street" type="varchar(255)"/>
+            <column name="zip_code" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="address"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ChangeSet for customer table -->
+    <changeSet id="6" author="yourName">
+        <comment>Create customer table</comment>
+        <createTable tableName="customer">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar(255)"/>
+            <column name="last_name" type="varchar(255)"/>
+            <column name="email" type="varchar(255)"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="customer"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ChangeSet for orders table -->
+    <changeSet id="7" author="yourName">
+        <comment>Create orders table</comment>
+        <createTable tableName="orders">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="order_tracking_number" type="varchar(255)"/>
+            <column name="total_price" type="decimal(19,2)"/>
+            <column name="total_quantity" type="int"/>
+            <column name="billing_address_id" type="bigint"/>
+            <column name="customer_id" type="bigint"/>
+            <column name="shipping_address_id" type="bigint"/>
+            <column name="status" type="varchar(128)"/>
+            <column name="date_created" type="datetime"/>
+            <column name="last_updated" type="datetime"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="customer_id"
+                                referencedTableName="customer" referencedColumnNames="id"
+                                constraintName="FK_customer_id"/>
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="billing_address_id"
+                                referencedTableName="address" referencedColumnNames="id"
+                                constraintName="FK_billing_address_id"/>
+        <addForeignKeyConstraint baseTableName="orders" baseColumnNames="shipping_address_id"
+                                referencedTableName="address" referencedColumnNames="id"
+                                constraintName="FK_shipping_address_id"/>
+        <rollback>
+            <dropTable tableName="orders"/>
+        </rollback>
+    </changeSet>
+
+    <!-- ChangeSet for order_item table -->
+    <changeSet id="8" author="yourName">
+        <comment>Create order_item table</comment>
+        <createTable tableName="order_item">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="image_url" type="varchar(255)"/>
+            <column name="quantity" type="int"/>
+            <column name="unit_price" type="decimal(19,2)"/>
+            <column name="order_id" type="bigint"/>
+            <column name="product_id" type="bigint"/>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="order_item" baseColumnNames="order_id"
+                                referencedTableName="orders" referencedColumnNames="id"
+                                constraintName="FK_order_id"/>
+        <addForeignKeyConstraint baseTableName="order_item" baseColumnNames="product_id"
+                                referencedTableName="product" referencedColumnNames="id"
+                                constraintName="FK_product_id"/>
+        <rollback>
+            <dropTable tableName="order_item"/>
+        </rollback>
+    </changeSet>
+<!-- Insert -->
+
+    
+    <changeSet id="9" author="me">
+        <comment>Insert data into product_category table</comment>
+        <insert tableName="product_category">
+            <column name="id" valueNumeric="1"/>
+            <column name="category_name" value="Books"/>
+        </insert>
+        <rollback>
+            <delete tableName="product_category">
+                <where>id = 1</where>
+            </delete>
+        </rollback>
+    </changeSet>
+    
+    <changeSet id="2023-11-19-04" author="yourName">
+        <comment>Insert data into country table</comment>
+        <insert tableName="country">
+            <column name="id" valueNumeric="1"/>
+            <column name="code" value="BR"/>
+            <column name="name" value="Brazil"/>
+        </insert>
+        <rollback>
+            <delete tableName="country">
+                <where>id = 1</where>
+            </delete>
+        </rollback>
+    </changeSet>
+    
+    <changeSet id="10" author="yourName">
+        <comment>Insert data into state table</comment>
+        <insert tableName="state">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="Acre"/>
+            <column name="country_id" valueNumeric="1"/>
+        </insert>
+        <rollback>
+            <delete tableName="state">
+                <where>id = 1</where>
+            </delete>
+        </rollback>
+    </changeSet>
+    
+    <changeSet id="11" author="yourName">
+        <comment>Insert initial product data</comment>
+        <insert tableName="product">
+            <column name="sku" value="BOOK-TECH-1000"/>
+            <column name="name" value="JavaScript - The Fun Parts"/>
+            <column name="description" value="Learn JavaScript"/>
+            <column name="image_url" value="changelog/images/placeholder.png"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="units_in_stock" valueNumeric="100"/>
+            <column name="unit_price" valueNumeric="19.99"/>
+            <column name="category_id" valueNumeric="1"/>
+            <column name="date_created" valueComputed="NOW()"/>
+        </insert>
+        <rollback>
+            <delete tableName="product">
+                <where>sku = 'BOOK-TECH-1000'</where>
+            </delete>
+        </rollback>
+    </changeSet>
+    
+
+</databaseChangeLog>

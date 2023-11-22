@@ -1,0 +1,25 @@
+package com.dh2p.backend.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.dh2p.backend.model.ProductCategory;
+import com.dh2p.backend.repository.ProductCategoryRepository;
+import java.util.List;
+
+@Service
+public class ProductCategoryService {
+    @Autowired
+    private ProductCategoryRepository categoryRepository;
+
+    public List<ProductCategory> getAllProductCategories() {
+        return categoryRepository.findAll();
+    }
+
+    public ProductCategory getProductCategoryById(Long id) {
+        return categoryRepository.findById(id).orElse(null);
+    }
+
+    public ProductCategory getProductCategoryByName(String name) {
+        return categoryRepository.findByName(name);
+    }
+}
