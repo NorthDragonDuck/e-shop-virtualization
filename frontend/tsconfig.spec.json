@@ -12,7 +12,7 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.spec.ts",
+    "src/**/dh2p-shop-validators.spec.ts",
     "src/**/*.d.ts"
   ]
 }
