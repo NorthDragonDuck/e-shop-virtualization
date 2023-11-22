@@ -1,0 +1,15 @@
+http://vhost1.localhost {
+	handle_path /api/* {
+		reverse_proxy backend:8080
+	}
+	handle {
+		reverse_proxy frontend:80
+	}
+}
+
+http://vhost2.localhost {
+	basicauth {
+		user1 $2a$14$qDy.rPlayhETj9.kJ4VP3uKePlXPW7uccYUpBb68Yv3cyKaQg0qEK
+	}
+	reverse_proxy vhost2:8080
+}
