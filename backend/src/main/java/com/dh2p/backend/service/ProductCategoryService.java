@@ -19,7 +19,7 @@ public class ProductCategoryService {
         return categoryRepository.findById(id).orElse(null);
     }
 
-    public ProductCategory getProductCategoryByName(String name) {
-        return categoryRepository.findByName(name);
+    public ProductCategory getProductCategoryByName(String category_name) {
+        return categoryRepository.findByCategoryName(category_name);
     }
 }

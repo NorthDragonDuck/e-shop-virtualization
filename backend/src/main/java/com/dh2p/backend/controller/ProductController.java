@@ -2,6 +2,7 @@ package com.dh2p.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import com.dh2p.backend.model.Product;
@@ -31,17 +32,12 @@ public class ProductController {
         return productService.getAllProducts(page, size);
     }
 
-    @GetMapping("/search/findByCategoryId")
-    public Page<Product> findByCategoryId(@RequestParam("id") Long categoryId,
-                                            @RequestParam("page") int page,
-                                            @RequestParam("size") int size) {
-        return productService.findByCategoryId(categoryId, page, size);
-    }
-
-    @GetMapping("/search/findByNameContaining")
-    public Page<Product> findByNameContaining(@RequestParam("name") String keyword,
-                                                @RequestParam("page") int page,
-                                                @RequestParam("size") int size) {
-        return productService.findByNameContaining(keyword, page, size);
+    @GetMapping("/search")
+    public Page<Product> searchProducts(
+        @RequestParam("name") String keyword, 
+        @RequestParam("page") int page, 
+        @RequestParam("size") int size) {
+        
+        return productService.searchProducts(keyword, PageRequest.of(page, size));
     }
 }

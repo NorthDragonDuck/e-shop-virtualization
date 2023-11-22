@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+
+  # Define the backend service
+  backend:
+    container_name: backend
+    build: ./backend
+    depends_on:
+      - database
+    environment:
+      - POSTGRES_URI=postgresql://mbsuperadmin:NeClownLast44*404*#Hahaha24-LS@database:5432/dh2p_database
+    networks:
+      - net1
+
+  # Define the frontend service
+  frontend:
+    container_name: frontend
+    build: ./frontend # Path to the directory with the Dockerfile for Angular
+    ports:
+      - "4200:80" # Map port 80 in the container to port 4200 on the host
+    networks:
+      - net1
+
+      
+  # Define the MongoDB service
+  database:
+    container_name: postgres
+    build: ./database # Path to the directory with the Dockerfile
+    environment:
+      POSTGRES_USER: mbsuperadmin
+      POSTGRES_PASSWORD: NeClownLast44*404*#Hahaha24-LS
+      POSTGRES_DB: dh2p_database
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/10-init-postgress.sql
+      - ./scripts/insert-data.sql:/docker-entrypoint-initdb.d/20-insert-data.sql
+    networks:
+      - net1
+
+  vhost1:
+    container_name: vhost1
+    build: ./vhost1
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - net1
+  
+  # Define the vhost2 service
+  vhost2:
+    container_name: vhost2
+    build: ./vhost2
+    networks:
+      - net2
+
+  # Define the Caddy reverse proxy
+  proxy:
+    container_name: proxy
+    build: ./proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./proxy/Caddyfile:/etc/caddy/Caddyfile:ro
+    depends_on:
+      - vhost1
+      - vhost2
+    networks:
+      - net1
+      - net2
+      - net3
+
+volumes:
+  db_data:
+
+networks:
+  net1:
+  net2:
+  net3:

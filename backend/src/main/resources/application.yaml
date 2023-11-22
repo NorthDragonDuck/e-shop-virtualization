@@ -1,8 +1,8 @@
 spring:
     datasource:
-        url: jdbc:postgresql://localhost:5432/dh2p_database
-        # username: mbsuperadmin
-        username: postgres
+        url: jdbc:postgresql://database:5432/dh2p_database
+        username: mbsuperadmin
+        # username: postgres
         # password: postgres
         password: NeClownLast44*404*#Hahaha24-LS
         driver-class-name: org.postgresql.Driver

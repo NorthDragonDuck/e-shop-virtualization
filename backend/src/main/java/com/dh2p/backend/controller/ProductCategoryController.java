@@ -7,7 +7,7 @@ import com.dh2p.backend.model.ProductCategory;
 import com.dh2p.backend.service.ProductCategoryService;
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://frontend:4200")
 @RestController
 @RequestMapping("/api/category")
 public class ProductCategoryController {

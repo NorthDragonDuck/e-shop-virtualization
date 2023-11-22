@@ -5,5 +5,5 @@ import com.dh2p.backend.model.ProductCategory;
 
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Long> {
     
-    ProductCategory findByName(String name);
+    ProductCategory findByCategoryName(String category_name);
 }
