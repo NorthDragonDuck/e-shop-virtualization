@@ -11,7 +11,7 @@ public class ProductCategoryService {
     @Autowired
     private ProductCategoryRepository categoryRepository;
 
-    public List<ProductCategory> getAllProductCategories() {
+    public List<ProductCategory> getAllProductCategoryList() {
         return categoryRepository.findAll();
     }
 

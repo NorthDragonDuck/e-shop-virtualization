@@ -35,6 +35,7 @@ services:
       - db_data:/var/lib/postgresql/data
       - ./scripts/init-postgres.sql:/docker-entrypoint-initdb.d/10-init-postgres.sql
       - ./scripts/insert-data.sql:/docker-entrypoint-initdb.d/20-insert-data.sql
+      
     networks:
       - net1
 
@@ -52,7 +53,7 @@ services:
     container_name: vhost1
     build: ./vhost1
     depends_on:
-      - pgadmin
+      # - pgadmin
       - backend
       - frontend
     networks:

@@ -12,7 +12,7 @@ export class ProductService {
 
   private baseUrl = 'http://vhost1.localhost/api/products';
 
-  private categoryUrl = 'http://vhost1.localhost/api/product-category';
+  private categoryUrl = 'http://vhost1.localhost/api/categories';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -70,10 +70,10 @@ export class ProductService {
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
-
+  
     return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
-      map(response => response._embedded.productCategory)
-    );
+      map(response => response._embedded.categories)
+      );
   }
 
 }
@@ -92,6 +92,6 @@ interface GetResponseProducts {
 
 interface GetResponseProductCategory {
   _embedded: {
-    productCategory: ProductCategory[];
+    categories: ProductCategory[]; // This key needs to match the one in the JSON response
   }
 }
