@@ -18,6 +18,10 @@ public class ProductService {
         return productRepository.findById(id).orElse(null);
     }
 
+    public Page<Product> findProductsByCategoryId(Long categoryId, Pageable pageable) {
+        return productRepository.findByCategoryId(categoryId, pageable);
+    }
+
     public Page<Product> getAllProducts(int page, int size) {
         return productRepository.findAll(PageRequest.of(page, size));
     }
