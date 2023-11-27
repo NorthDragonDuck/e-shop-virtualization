@@ -16,10 +16,10 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProduct(theProductId: number): Observable<Product> {
+  getProduct(theProductSku: string): Observable<Product> {
 
     // need to build URL based on product id
-    const productUrl = `${this.baseUrl}/${theProductId}`;
+    const productUrl = `${this.baseUrl}/${theProductSku}`;
 
     return this.httpClient.get<Product>(productUrl);
   }
@@ -29,7 +29,7 @@ export class ProductService {
                          theCategoryId: number): Observable<GetResponseProducts> {
 
     // need to build URL based on category id, page and size 
-    const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
+    const searchUrl = `${this.baseUrl}/search/findByCategorySlug?slug=${theCategoryId}`
                     + `&page=${thePage}&size=${thePageSize}`;
 
     return this.httpClient.get<GetResponseProducts>(searchUrl);
@@ -75,8 +75,8 @@ export class ProductService {
       );
   }
 
-  getProductsByCategoryName(categoryName: string, page: number, size: number): Observable<GetResponseProducts> {
-    const searchUrl = `${this.categoryUrl}/${categoryName}`;
+  getProductsByCategoryName(categorySlug: string, page: number, size: number): Observable<GetResponseProducts> {
+    const searchUrl = `${this.categoryUrl}/${categorySlug}`;
     return this.httpClient.get<GetResponseProducts>(searchUrl)
   }
 

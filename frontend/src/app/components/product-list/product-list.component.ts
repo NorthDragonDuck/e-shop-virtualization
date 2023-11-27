@@ -72,13 +72,25 @@ export class ProductListComponent implements OnInit {
   }
 
   handleListProducts() {
+  // Check if "name" parameter is available which corresponds to the category slug
+  const hasCategoryName: boolean = this.route.snapshot.paramMap.has('slug');
+
+  if (hasCategoryName) {
+    // get the "name" param string
+    this.currentCategoryName = this.route.snapshot.paramMap.get('slug')!;
+
+    // now get the products for the given category name (slug)
+    this.productService.getProductsByCategoryName(this.currentCategoryName, this.thePageNumber - 1, this.thePageSize)
+                       .subscribe(this.processResult());
+  } else {
+    // not category name available ... default to no category filter
     this.productService.getProductList().subscribe(
       data => {
         this.products = data;
       }
     );
-    
   }
+}
 
   updatePageSize(pageSize: string) {
     this.thePageSize = +pageSize;
@@ -100,7 +112,7 @@ export class ProductListComponent implements OnInit {
     console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}`);
 
     // TODO ... do the real work
-    let theCartItem = new CartItem(theProduct.id, theProduct.name, theProduct.imageUrl, theProduct.unitPrice);
+    let theCartItem = new CartItem(theProduct.sku, theProduct.name, theProduct.imageUrl, theProduct.unitPrice);
 
     this.cartService.addToCart(theCartItem);
   }

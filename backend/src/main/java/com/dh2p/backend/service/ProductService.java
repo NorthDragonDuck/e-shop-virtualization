@@ -14,20 +14,20 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public Product getProductById(Long id) {
+    public Product getProductById(String id) {
         return productRepository.findById(id).orElse(null);
     }
 
-    public Page<Product> findProductsByCategoryId(Long categoryId, Pageable pageable) {
-        return productRepository.findByCategoryId(categoryId, pageable);
+    public Page<Product> getProductsByCategorySlug(String slug, Pageable pageable) {
+        return productRepository.findByCategorySlug(slug, pageable);
+    }
+
+    public Product getProductBySku(String sku) {
+        return productRepository.findBySku(sku);
     }
 
     public Page<Product> getAllProducts(int page, int size) {
         return productRepository.findAll(PageRequest.of(page, size));
-    }
-
-    public Page<Product> findByCategoryId(Long categoryId, int page, int size) {
-        return productRepository.findByCategoryId(categoryId, PageRequest.of(page, size));
     }
 
     public Page<Product> findByNameContaining(String keyword, int page, int size) {

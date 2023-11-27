@@ -32,36 +32,30 @@ public class ProductCategoryController {
         return categoryService.getAllProductCategoryList();
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<ProductCategory> getCategoryById(@PathVariable Long id) {
-        ProductCategory category = categoryService.getProductCategoryById(id);
-        if (category != null) {
-            return ResponseEntity.ok(category);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    // @GetMapping("/{id}")
+    // public ResponseEntity<ProductCategory> getCategoryById(@PathVariable Long id) {
+    //     ProductCategory category = categoryService.getProductCategoryById(id);
+    //     if (category != null) {
+    //         return ResponseEntity.ok(category);
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    // }
+
+    @GetMapping("/{slug}")
+    public ResponseEntity<Page<Product>> getProductsByCategoryName(
+        @PathVariable("slug") String slug,
+        @RequestParam(value = "page", defaultValue = "0") int page,
+        @RequestParam(value = "size", defaultValue = "20") int size) {
+    
+    Pageable pageable = PageRequest.of(page, size);
+    Page<Product> products = productService.getProductsByCategorySlug(slug, pageable);
+
+    if (products.isEmpty()) {
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT); // or HttpStatus.NOT_FOUND if you prefer
     }
 
-    @GetMapping("/categories/{categoryName}")
-    public ResponseEntity<Page<Product>> getProductsByCategoryName(
-            @PathVariable String categoryName,
-            @RequestParam(value = "page", defaultValue = "0") int page,
-            @RequestParam(value = "size", defaultValue = "20") int size) {
-        
-        Pageable pageable = PageRequest.of(page, size);
-        ProductCategory category = categoryService.getProductCategoryByName(categoryName);
-    
-        // Check if the category was found
-        if (category == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    
-        Page<Product> products = productService.findProductsByCategoryId(category.getId(), pageable);
-        if (products == null || products.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    
-        return new ResponseEntity<>(products, HttpStatus.OK);
-    }
+    return new ResponseEntity<>(products, HttpStatus.OK);
+}
 }
 

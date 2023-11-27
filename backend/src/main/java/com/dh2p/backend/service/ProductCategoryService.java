@@ -15,9 +15,6 @@ public class ProductCategoryService {
         return categoryRepository.findAll();
     }
 
-    public ProductCategory getProductCategoryById(Long id) {
-        return categoryRepository.findById(id).orElse(null);
-    }
 
     public ProductCategory getProductCategoryByName(String category_name) {
         return categoryRepository.findByCategoryName(category_name);
