@@ -20,10 +20,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
-  {path: 'products/:id', component: ProductDetailsComponent},
+  {path: 'products/:sku', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductListComponent},
-  {path: 'category/: id', component: ProductListComponent},
-  {path: 'category', component: ProductListComponent},
+  {path: 'categories/:slug', component: ProductListComponent},
+  {path: 'categories', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: '', redirectTo: '/products', pathMatch: 'full'},
   {path: '**', redirectTo: '/products', pathMatch: 'full'}

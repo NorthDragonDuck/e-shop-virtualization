@@ -1,13 +1,12 @@
 -- Create product_category table
 CREATE TABLE product_category (
-    id BIGSERIAL PRIMARY KEY,
+    slug VARCHAR(255) PRIMARY KEY,
     category_name VARCHAR(255)
 );
 
 -- Create product table
 CREATE TABLE product (
-    id BIGSERIAL PRIMARY KEY,
-    sku VARCHAR(255),
+    sku VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255),
     description VARCHAR(255),
     unit_price DECIMAL(13,2),
@@ -16,8 +15,10 @@ CREATE TABLE product (
     units_in_stock INT,
     date_created TIMESTAMP,
     last_updated TIMESTAMP,
-    category_id BIGINT NOT NULL REFERENCES product_category(id)
+    category_slug VARCHAR(255),
+    FOREIGN KEY (category_slug) REFERENCES product_category(slug)
 );
+
 
 -- Create country table
 CREATE TABLE country (
@@ -71,6 +72,5 @@ CREATE TABLE order_item (
     image_url VARCHAR(255),
     quantity INT,
     unit_price DECIMAL(19,2),
-    order_id BIGINT NOT NULL REFERENCES orders(id),
-    product_id BIGINT NOT NULL REFERENCES product(id)
+    order_id BIGINT NOT NULL REFERENCES orders(id)
 );

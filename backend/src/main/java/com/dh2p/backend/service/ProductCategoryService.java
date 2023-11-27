@@ -11,13 +11,10 @@ public class ProductCategoryService {
     @Autowired
     private ProductCategoryRepository categoryRepository;
 
-    public List<ProductCategory> getAllProductCategories() {
+    public List<ProductCategory> getAllProductCategoryList() {
         return categoryRepository.findAll();
     }
 
-    public ProductCategory getProductCategoryById(Long id) {
-        return categoryRepository.findById(id).orElse(null);
-    }
 
     public ProductCategory getProductCategoryByName(String category_name) {
         return categoryRepository.findByCategoryName(category_name);

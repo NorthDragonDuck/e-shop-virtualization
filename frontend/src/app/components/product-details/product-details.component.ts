@@ -27,9 +27,9 @@ export class ProductDetailsComponent implements OnInit {
   handleProductDetails() {
 
     // get the "id" param string. convert string to a number using the "+" symbol
-    const theProductId: number = +this.route.snapshot.paramMap.get('id');
+    const theProductSku: string = this.route.snapshot.paramMap.get('sku');
 
-    this.productService.getProduct(theProductId).subscribe(
+    this.productService.getProduct(theProductSku).subscribe(
       data => {
         this.product = data;
       }
@@ -39,7 +39,8 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
 
     console.log(`Adding to cart: ${this.product.name}, ${this.product.unitPrice}`);
-    const theCartItem = new CartItem(this.product);
+    let theCartItem = new CartItem(this.product.sku, this.product.name, this.product.imageUrl, this.product.unitPrice);
+    
     this.cartService.addToCart(theCartItem);
     
   }

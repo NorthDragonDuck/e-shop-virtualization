@@ -8,11 +8,11 @@
 
                     <div class="product-box">
 
-                        <a routerLink="/products/{{ tempProduct.id }}">
+                        <a routerLink="/products/{{ tempProduct.sku }}">
                             <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
                         </a>
 
-                        <a routerLink="/products/{{ tempProduct.id }}">
+                        <a routerLink="/products/{{ tempProduct.sku }}">
                             <h1>{{ tempProduct.name }}</h1>
                         </a>
                         
@@ -52,7 +52,7 @@
                             <div class="col-md-3 mt-2" style="text-align: right;">
                                 <span class="mr-2">Page Size</span>
 
-                                <select (change)="updatePageSize($event.target.value)">
+                                <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
                                     <option>2</option>
                                     <option selected="true">5</option>
                                     <option>10</option>
