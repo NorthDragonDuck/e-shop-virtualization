@@ -5,12 +5,17 @@
 
         <h3>{{ product.name }}</h3>
         <div class="price">{{ product.unitPrice | currency:'USD' }}</div>
-        <button (click)="addToCart()" class="btn-primary-univ">Add to cart</button>
+        <button (click)="addToCart()" class="btn-primary-univ-proddesc">Add to cart</button>
 
         <hr>
         <h4>Description</h4>
         <p>{{ product.description }}</p>
 
-        <a routerLink="/products" class="mt-5">Back to Product List</a>
+        <!-- Modified anchor tag without the checkmark icon -->
+        <a routerLink="vhost1.localhost/" class="btn-back-to-products" style="text-decoration: none; color: rgb(66, 66, 66);">
+            &lt; Back to Product List
+        </a>
+              
     </div>
 </div>
+
