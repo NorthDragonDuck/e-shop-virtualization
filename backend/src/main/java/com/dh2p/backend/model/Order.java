@@ -76,6 +76,20 @@ public class Order {
     @JoinColumn(name = "billing_address_id", referencedColumnName = "id")
     private Address billingAddress;
 
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Order)) return false;
+        Order that = (Order) o;
+        return id != null && id.equals(that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
+    
     public void add(OrderItem item) {
 
         if (item != null) {
@@ -88,12 +102,3 @@ public class Order {
         }
     }
 }
-
-
-
-
-
-
-
-
-

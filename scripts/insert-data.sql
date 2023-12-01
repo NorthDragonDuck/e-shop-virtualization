@@ -25,7 +25,7 @@ INSERT INTO state (id, name, country_id) VALUES
 
 -- Insert data into product
 -- Insert data into product for each category with SKUs generated from the product name
-INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, category_slug, date_created) VALUES
+INSERT INTO product (sku, name, description, image_url, active, units_in_stock, unit_price, category, date_created) VALUES
 -- GYM BOOKS
 
     ('fitness-fundamentals', 'Fitness Fundamentals', 'A guide to fundamental gym workouts', './assets/images/products/fitness-fundamentals.png', true, 150, 29.99, 'gym-books', NOW()),

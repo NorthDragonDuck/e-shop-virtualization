@@ -4,8 +4,8 @@
 
             <li *ngFor="let tempProductCategory of productCategories">
 
-                <a routerLink="/categories/{{ tempProductCategory.slug }}" routerLinkActive="active-link">
-                    {{ tempProductCategory.slug }}
+                <a routerLink="/products/by-category/{{ tempProductCategory.slug }}" routerLinkActive="active-link">
+                    {{ tempProductCategory.categoryName }}
                 </a>
 
             </li>

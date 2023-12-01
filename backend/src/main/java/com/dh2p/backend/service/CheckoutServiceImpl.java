@@ -1,11 +1,13 @@
 package com.dh2p.backend.service;
 
-import com.dh2p.backend.dto.Purchase;
-import com.dh2p.backend.dto.PurchaseResponse;
 import com.dh2p.backend.model.Customer;
 import com.dh2p.backend.model.Order;
 import com.dh2p.backend.model.OrderItem;
+import com.dh2p.backend.model.Purchase;
+import com.dh2p.backend.model.PurchaseResponse;
 import com.dh2p.backend.repository.CustomerRepository;
+
+import lombok.RequiredArgsConstructor;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,13 +17,10 @@ import java.util.Set;
 import java.util.UUID;
 
 @Service
+@RequiredArgsConstructor
 public class CheckoutServiceImpl implements CheckoutService {
 
-    private CustomerRepository customerRepository;
-
-    public CheckoutServiceImpl(CustomerRepository customerRepository) {
-        this.customerRepository = customerRepository;
-    }
+    private final CustomerRepository customerRepository;
 
     @Override
     @Transactional
@@ -61,12 +60,3 @@ public class CheckoutServiceImpl implements CheckoutService {
         return UUID.randomUUID().toString();
     }
 }
-
-
-
-
-
-
-
-
-

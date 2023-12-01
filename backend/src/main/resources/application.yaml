@@ -2,14 +2,12 @@ spring:
     datasource:
         url: jdbc:postgresql://database:5432/dh2p_database
         username: mbsuperadmin
-        # username: postgres
-        # password: postgres
         password: NeClownLast44*404*#Hahaha24-LS
         driver-class-name: org.postgresql.Driver
     jpa:
         hibernate:
             ddl-auto: update
-        show-sql: true
+        show-sql: true # set to false in production
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect

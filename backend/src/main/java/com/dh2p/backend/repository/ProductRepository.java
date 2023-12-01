@@ -1,19 +1,15 @@
 package com.dh2p.backend.repository;
 
-import com.dh2p.backend.model.Product;
-
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
+import org.springframework.data.repository.query.Param;
 
-@RepositoryRestResource(collectionResourceRel = "products", path = "products")
+import com.dh2p.backend.model.Product;
+
 public interface ProductRepository extends JpaRepository<Product, String> {
+    
+    Page<Product> findByCategorySlug(@Param("categorySlug") String categorySlug, Pageable pageable);
 
-    Page<Product> findByCategorySlug(String categorySlug, Pageable pageable);
-
-    Page<Product> findByNameContaining(String name, Pageable pageable);
-
-    Product findBySku(String sku);
+    Page<Product> findByNameContainingIgnoreCase(String name, Pageable pageable);
 }

@@ -55,7 +55,7 @@ services:
     depends_on:
       # - pgadmin
       - backend
-      - frontend
+      # - frontend
     networks:
       - net1
   

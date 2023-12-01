@@ -188,7 +188,7 @@ export class CheckoutComponent implements OnInit {
 
     // get cart items
     const cartItems = this.cartService.cartItems;
-
+    console.log(cartItems);
     // create orderItems from cartItems
     // - long way
     /*
