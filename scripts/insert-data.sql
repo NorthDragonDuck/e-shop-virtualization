@@ -44,11 +44,11 @@ INSERT INTO product (sku, name, description, image_url, active, units_in_stock, 
 
 -- GEAR
     ('durable-workout-gloves', 'Durable Workout Gloves', 'Durable leather workout gloves', './assets/images/products/workout-gloves.png', true, 150, 19.99, 'gear', NOW()),
-    ('supportive-weightlifting-belt', 'Supportive Weightlifting Belt', 'Supportive weightlifting belt', './assets/images/products/weightlifting-belt.png', true, 75, 29.99, 'gear', NOW()),
+    ('supportive-weightlifting-belt', 'Lifting Belt', 'Supportive weightlifting belt', './assets/images/products/weightlifting-belt.png', true, 75, 29.99, 'gear', NOW()),
     ('heavy-duty-lifting-straps', 'Heavy-Duty Lifting Straps', 'Heavy-duty lifting straps', './assets/images/products/lifting-straps.png', true, 200, 9.99, 'gear', NOW()),
 
 -- SHOES
-    ('lightweight-mens-running-shoes', 'Lightweight Men’s Running Shoes', 'Lightweight men’s running shoes', './assets/images/products/men-running-shoes.png', true, 100, 59.99, 'shoes', NOW()),
-    ('breathable-womens-running-shoes', 'Breathable Women’s Running Shoes', 'Breathable women’s running shoes', './assets/images/products/women-running-shoes.png', true, 100, 59.99, 'shoes', NOW()),
-    ('versatile-training-shoes', 'Versatile Training Shoes', 'Versatile training shoes', './assets/images/products/trainer-shoes.png', true, 150, 49.99, 'shoes', NOW());
+    ('lightweight-mens-running-shoes', 'Men’s Running Shoes', 'Lightweight men’s running shoes', './assets/images/products/men-running-shoes.png', true, 100, 59.99, 'shoes', NOW()),
+    ('breathable-womens-running-shoes', 'Women’s Running Shoes', 'Breathable women’s running shoes', './assets/images/products/women-running-shoes.png', true, 100, 59.99, 'shoes', NOW()),
+    ('versatile-training-shoes', 'Training Shoes', 'Versatile training shoes', './assets/images/products/trainer-shoes.png', true, 150, 49.99, 'shoes', NOW());
 ;

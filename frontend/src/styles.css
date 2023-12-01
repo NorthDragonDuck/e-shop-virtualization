@@ -579,22 +579,32 @@ input.au-input.au-input-xl{
 .price{
     margin:15px 0 0;
     font-weight:800;
-    color:#0da8e4
+    color:rgb(34,139,34);
 }
-.product-box h1{
+.product-box h1 {
     font-size:18px;
     border-bottom:1px solid #ccc;
     padding-bottom:5px;
+    padding-left: 10px;
     font-weight:600;
     padding-top:12px;
-    margin-bottom:7px
+    margin-bottom:7px;
+    color:rgb(66, 66, 66);
+    text-decoration: none; /* Remove underline from the link */
 }
+
+.product-box h1 a {
+    text-decoration: none; /* Remove underline from the anchor link within h1 */
+}
+
 .product-box h2{
     font-size:15px;
     padding-bottom:0;
     font-weight:500;
     color:#585858
 }
+
+
 
 /* 
  * ----------------------------
@@ -727,7 +737,7 @@ table.table.table-bordered{
     border:1px solid #dee2e6
 }
 table.table.table-bordered th{
-    BACKGROUND:#0da8e4;
+    BACKGROUND:rgb(66, 66, 66);
     color:#fff;
     font-size:14px;
     padding:7px
@@ -754,7 +764,7 @@ table.table.table-bordered th{
  .price{
     margin:15px 0 0;
     font-weight:800;
-    color:#0da8e4
+    color:rgb(34,139,34)
 }
 
 .detail-section{
@@ -762,7 +772,22 @@ table.table.table-bordered th{
 }
 
 .detail-img{
-    width: 30%;
+    width: 20%;
+}
+
+a.btn-back-to-products{
+
+    text-decoration: none !important;
+    color: rgb(66, 66, 66) !important;
+
+}
+
+a.btn-back-to-products:hover{
+    color:#041033 !important;
+}
+
+a.btn-back-to-products:active{
+    color:#000000 !important;
 }
 
 /**/
@@ -774,27 +799,163 @@ table.table.table-bordered th{
  */
 
  .btn-info{
-    color:#fff;
-    background-color:#0da8e4!important;
-    border-color:#0da8e4!important
+    background: rgb(34,139,34);
+    padding: 7px 20px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 8px;
 }
-a.primary-btn{
+
+
+.btn-info:hover {
     background:#05143f;
+}
+
+.btn-info:active {
+    background:#000000;
+}
+
+a.primary-btn{
+    background:rgb(236, 26, 26);
     padding:7px 20px;
     text-align:center;
     display:inline-block;
-    color:#fff;
+    color:rgb(236, 26, 26);
     border-radius:2px;
     font-size:14px;
     margin-top:5px
 }
 a.primary-btn:hover{
-    background:#0da8e4;
+    background:#05143f;
     color:#fff
 }
 
 .active-link {
   font-weight: bold;
+}
+
+.btn-primary {
+    background: rgb(236, 26, 26);
+    padding: 7px 20px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.btn-primary:hover {
+    background:#05143f;
+}
+
+.btn-primary:active {
+    background:#000000;
+}
+
+.btn-primary-univ {
+    background: rgb(66, 66, 66);
+    padding: 7px 20px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 8px;
+}
+
+.btn-primary-univ:hover {
+    background: rgb(121, 121, 121);
+}
+.btn-primary-univ:active {
+    background: rgb(31, 31, 31);
+}
+
+
+.btn-primary-univ-proddesc {
+    background: rgb(66, 66, 66);
+    padding: 7px 20px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    font-size: 14px;
+    margin-top: 5px;
+    margin-left: 0px;
+}
+
+.btn-primary-univ-proddesc:hover {
+    background: rgb(121, 121, 121);
+}
+.btn-primary-univ-proddesc:active {
+    background: rgb(31, 31, 31);
+}
+
+
+.btn-primary-inc {
+    background: rgb(66, 66, 66);
+    padding: 5px 10px; /* Decrease padding to make the button smaller */
+    text-align: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    border-radius: 15px; /* Reduced border-radius for a smaller roundness */
+    font-size: 12px; /* Decreased font-size to make the text smaller */
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-right: 10 px;
+}
+
+.btn-primary-inc:hover {
+    background: rgb(121, 121, 121);
+}
+.btn-primary-inc:active {
+    background: rgb(31, 31, 31);
+}
+
+.btn-primary-dec {
+    background: rgb(66, 66, 66);
+    padding: 5px 10px; /* Decrease padding to make the button smaller */
+    text-align: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    border-radius: 15px; /* Reduced border-radius for a smaller roundness */
+    font-size: 12px; /* Decreased font-size to make the text smaller */
+    margin-top: 5px;
+    margin-left: 0px;
+    margin-right: 0 px;
+}
+
+.btn-primary-dec:hover {
+    background: rgb(121, 121, 121);
+}
+
+.btn-primary-dec:active {
+    background: rgb(31, 31, 31);
+}
+
+.btn-primary-checkout {
+    background:rgb(34,139,34);
+    padding: 7px 20px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    font-size: 14px;
+    margin-top: 5px;
+    text-decoration: none; /* Remove underline from the link */
+}
+
+.btn-primary-checkout:hover {
+    background: rgb(119, 192, 119);
+}
+
+.btn-primary-checkout:active {
+    background: rgb(146, 255, 146);
 }
 
 /* 
@@ -803,24 +964,106 @@ a.primary-btn:hover{
  * ----------------------------
  */
 
-footer ul li a{
-    color:#fff
-}
-footer{
-    background:#232324;
-    z-index:1;
-    position:relative;
-    text-align:center
-}
-footer li a{
-    color:#313131;
-    font-weight:500
-}
-footer ul li{
-    display:inline-block;
-    font-size:14px;
-    padding:10px 20px
-}
+ /* Footer styles */
+.footer {
+    background-color: #f8f8f8;
+    padding: 20px 0;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .footer-column {
+    flex: 1 1 23%; /* Adjust column width as needed */
+    margin-bottom: 20px;
+  }
+  
+  .footer-column h4 {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-column ul li a:hover {
+    color: #007bff;
+  }
+  
+  .footer-bottom {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .newsletter-form input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+  }
+  
+  .newsletter-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .newsletter-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .checkbox {
+    display: flex;
+    align-items: center;
+  }
+  
+  .checkbox label {
+    margin-left: 5px;
+  }
+  
+  .social-icons {
+    display: flex;
+  }
+  
+  .social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+  }
 
 /* 
  * ----------------------------
