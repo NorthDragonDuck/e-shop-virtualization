@@ -141,7 +141,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
     right:0;
     left:200px;
     height:86px;
-    z-index:3
+    z-index:3;
 }
 
 .header-desktop .section-content{
@@ -1044,6 +1044,7 @@ footer{
     transition: background-color 0.3s;
     width:130px;
     margin-top: 10px;
+    border-radius: 2px;
   }
   
   .newsletter-form button:hover {
