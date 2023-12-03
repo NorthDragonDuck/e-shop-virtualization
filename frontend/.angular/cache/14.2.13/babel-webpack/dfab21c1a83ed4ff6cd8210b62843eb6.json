@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class Order {\n  constructor(totalQuantity, totalPrice) {\n    this.totalQuantity = totalQuantity;\n    this.totalPrice = totalPrice;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}

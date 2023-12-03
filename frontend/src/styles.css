@@ -518,7 +518,7 @@ input.au-input.au-input-xl{
     line-height:inherit
 }
 .header-mobile .navbar-mobile .navbar-mobile-list li a:hover{
-    color:#0da8e4
+    color:#950de4
 }
 .header-mobile .navbar-mobile .navbar-mobile-list li a>i{
     margin-right:19px
@@ -579,7 +579,7 @@ input.au-input.au-input-xl{
 .price{
     margin:15px 0 0;
     font-weight:800;
-    color:rgb(34,139,34);
+    color:rgb(113, 204, 38);
 }
 .product-box h1 {
     font-size:18px;
@@ -702,7 +702,7 @@ label.date{
     top:-1px;
     width:9px;
     height:15px;
-    border:solid #0da8e4;
+    border:solid rgb(0, 0, 0);
     border-width:0 4px 4px 0;
     -webkit-border-radius:2px;
     -moz-border-radius:2px;
@@ -764,7 +764,7 @@ table.table.table-bordered th{
  .price{
     margin:15px 0 0;
     font-weight:800;
-    color:rgb(34,139,34)
+    color:rgb(113, 204, 38);
 }
 
 .detail-section{
@@ -799,7 +799,7 @@ a.btn-back-to-products:active{
  */
 
  .btn-info{
-    background: rgb(34,139,34);
+    background:rgb(113, 204, 38);
     padding: 7px 20px;
     text-align: center;
     display: inline-block;
@@ -939,7 +939,7 @@ a.primary-btn:hover{
 }
 
 .btn-primary-checkout {
-    background:rgb(34,139,34);
+    background:rgb(113, 204, 38);
     padding: 7px 20px;
     text-align: center;
     display: inline-block;
@@ -951,11 +951,11 @@ a.primary-btn:hover{
 }
 
 .btn-primary-checkout:hover {
-    background: rgb(119, 192, 119);
+    background:rgba(113, 204, 38, 0.87);
 }
 
 .btn-primary-checkout:active {
-    background: rgb(146, 255, 146);
+    background:rgb(127, 230, 43);
 }
 
 /* 
@@ -964,15 +964,18 @@ a.primary-btn:hover{
  * ----------------------------
  */
 
- /* Footer styles */
-.footer {
-    background-color: #f8f8f8;
+ footer ul li a{
+    color:#fff
+}
+footer{
+    z-index:1;
+    position:relative;
+    background-color: #5e3b3b;
     padding: 20px 0;
     color: #333;
     font-size: 14px;
-  }
-  
-  .container {
+}
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -1006,7 +1009,7 @@ a.primary-btn:hover{
   }
   
   .footer-column ul li a:hover {
-    color: #007bff;
+    color: #7f9ec0;
   }
   
   .footer-bottom {
@@ -1031,7 +1034,7 @@ a.primary-btn:hover{
   
   .newsletter-form button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #3f4750;
     color: white;
     border: none;
     cursor: pointer;
@@ -1039,7 +1042,7 @@ a.primary-btn:hover{
   }
   
   .newsletter-form button:hover {
-    background-color: #0056b3;
+    background-color: #53595f;
   }
   
   .checkbox {
@@ -1063,7 +1066,7 @@ a.primary-btn:hover{
   .social-icons img {
     width: 24px;
     height: 24px;
-  }
+}
 
 /* 
  * ----------------------------
@@ -1130,6 +1133,7 @@ a.primary-btn:hover{
         padding-left:0
     }
      .page-wrapper{
+        width: 100%;
         background:#e5e5e5;
         padding-bottom:12vh
     }

@@ -7,7 +7,7 @@ spring:
     jpa:
         hibernate:
             ddl-auto: update
-        show-sql: true # set to false in production
+        show-sql: false # set to false in production
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect

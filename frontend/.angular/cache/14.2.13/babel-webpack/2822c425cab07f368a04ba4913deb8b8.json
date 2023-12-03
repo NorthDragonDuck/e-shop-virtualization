@@ -1,0 +1,1 @@
+{"ast":null,"code":"export class OrderItem {\n  constructor(imageUrl, unitPrice, quantity, sku) {\n    this.imageUrl = imageUrl;\n    this.unitPrice = unitPrice;\n    this.quantity = quantity;\n    this.sku = sku;\n  }\n\n}","map":null,"metadata":{},"sourceType":"module"}
