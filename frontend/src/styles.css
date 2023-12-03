@@ -577,7 +577,7 @@ input.au-input.au-input-xl{
     margin-bottom:60px
 }
 .price{
-    margin:15px 0 0;
+    margin:15px 0 0 10px;
     font-weight:800;
     color:rgb(113, 204, 38);
 }
@@ -804,7 +804,7 @@ a.btn-back-to-products:active{
     text-align: center;
     display: inline-block;
     color: rgb(255, 255, 255);
-    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    border-radius: 10px; /* Adjust border-radius to control the roundness */
     font-size: 14px;
     margin-top: 5px;
     margin-left: 8px;
@@ -844,7 +844,7 @@ a.primary-btn:hover{
     text-align: center;
     display: inline-block;
     color: rgb(255, 255, 255);
-    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    border-radius: 10px; /* Adjust border-radius to control the roundness */
     font-size: 14px;
     margin-top: 5px;
 }
@@ -859,11 +859,11 @@ a.primary-btn:hover{
 
 .btn-primary-univ {
     background: rgb(66, 66, 66);
-    padding: 7px 20px;
+    padding: 7px 0px;
     text-align: center;
     display: inline-block;
     color: rgb(255, 255, 255);
-    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    border-radius: 10px; /* Adjust border-radius to control the roundness */
     font-size: 14px;
     margin-top: 5px;
     margin-left: 8px;
@@ -883,7 +883,7 @@ a.primary-btn:hover{
     text-align: center;
     display: inline-block;
     color: rgb(255, 255, 255);
-    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    border-radius: 10px; /* Adjust border-radius to control the roundness */
     font-size: 14px;
     margin-top: 5px;
     margin-left: 0px;
@@ -944,7 +944,7 @@ a.primary-btn:hover{
     text-align: center;
     display: inline-block;
     color: rgb(255, 255, 255);
-    border-radius: 20px; /* Adjust border-radius to control the roundness */
+    border-radius: 10px; /* Adjust border-radius to control the roundness */
     font-size: 14px;
     margin-top: 5px;
     text-decoration: none; /* Remove underline from the link */
