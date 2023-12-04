@@ -8,7 +8,7 @@ import { State } from '../common/state';
 @Injectable({
   providedIn: 'root'
 })
-export class Luv2ShopFormService {
+export class Dh2pShopFormService {
 
   private countriesUrl = 'http://vhost1.localhost/api/countries';
   private statesUrl = 'http://vhost1.localhost/api/states';
