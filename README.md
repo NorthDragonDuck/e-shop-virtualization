@@ -57,25 +57,25 @@ This documentation provides all necessary information to set up and manage the v
 - Configuration: Caddyfile
 - Build Command: docker-compose build proxy
 
-## Docker Compose Usage
+### Docker Compose Usage
 
-To manage the application:
+- To manage the application:
 
-Open the terminal, navegate to the project directory using 'cd path/to/working_directory/e-shop-virtualization"
+  - Open the terminal, navegate to the project directory using 'cd path/to/working_directory/e-shop-virtualization"
 
-# To start all services:
-docker-compose up. In case to not see all the logs directly specify the "-d" option
+- To start all services:
+  docker-compose up. In case to not see all the logs directly specify the "-d" option
 
-# To stop all services:
-docker-compose down
+- To stop all services:
+  docker-compose down
 
-# To rebuild and start services after making changes:
-docker-compose up --build -d
+- To rebuild and start services after making changes:
+  docker-compose up --build -d
 
-# To rebuild specific service:
-docker build --no-cache <service-name>. !Note: --no-chace option not nessesary
+- To rebuild specific service:
+  docker build --no-cache "service-name". !Note: --no-chace option not nessesary
 
-## Networking
+### Networking
 
 The services are defined on multiple networks for security and isolation:
 
@@ -83,22 +83,22 @@ The services are defined on multiple networks for security and isolation:
 - net2: Used for backend and database communication.
 - net3: Additional network, specify its use as per project requirements.
 
-## Persistent Data Volumes
+### Persistent Data Volumes
 
 - db_data: Stores the persistent database data.
 - backup_data: Stores the database backup files.
 
-## Accessing the Application
+### Accessing the Application
 
 Navigate to the following URLs in your web browser:
 
 - Angular/Java application service route: http://vhost1.localhost
 - Python application service route: http://vhost2.localhost (requires basic authentication provided in Caddyfile)
 
-## Maintenance and Updates
+### Maintenance and Updates
 
 To update any service, make the required changes to the source or configuration, rebuild the Docker image, and recreate the container using the Docker Compose commands provided.
 
-## Troubleshooting
+### Troubleshooting
 
 If you encounter issues with services not starting, database connectivity, or other operational challenges, please review the Docker and service logs for detailed error messages and diagnostics.
