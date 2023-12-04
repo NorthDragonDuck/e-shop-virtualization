@@ -1,10 +1,19 @@
-# Stage 1: Build the application
+# Build the application image
 FROM node:16-alpine as build
 
+# Set the working directory
 WORKDIR /app
+
+# Copy the package.json and package-lock.json
 COPY package.json package-lock.json ./
+
+# Install the dependencies
 RUN npm install
+
+# Copy the source code
 COPY . .
+
+# Build the application
 RUN npm run build
 
 # Stage 2: Serve the application from Nginx
