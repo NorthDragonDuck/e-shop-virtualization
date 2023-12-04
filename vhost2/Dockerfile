@@ -1,5 +1,6 @@
-FROM python:3.9-slim
+FROM debian:stable-slim
 
+RUN apt update && apt install python3 python3-pip -y
 # Set the working directory
 WORKDIR /app
 
@@ -10,4 +11,4 @@ COPY ./app.py /app/
 EXPOSE 8080
 
 # Command to run the app
-CMD ["python", "app.py"]
+CMD ["python3", "app.py"]
