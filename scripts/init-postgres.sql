@@ -15,8 +15,8 @@ CREATE TABLE product (
     units_in_stock INT,
     date_created TIMESTAMP,
     last_updated TIMESTAMP,
-    category_slug VARCHAR(255),
-    FOREIGN KEY (category_slug) REFERENCES product_category(slug)
+    category VARCHAR(255),
+    FOREIGN KEY (category) REFERENCES product_category(slug)
 );
 
 
@@ -72,5 +72,6 @@ CREATE TABLE order_item (
     image_url VARCHAR(255),
     quantity INT,
     unit_price DECIMAL(19,2),
-    order_id BIGINT NOT NULL REFERENCES orders(id)
+    order_id BIGINT NOT NULL REFERENCES orders(id),
+    product_id VARCHAR(255) REFERENCES product(sku)
 );

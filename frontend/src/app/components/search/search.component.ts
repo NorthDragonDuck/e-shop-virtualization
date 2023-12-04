@@ -15,6 +15,10 @@ export class SearchComponent implements OnInit {
 
   doSearch(value: string) {
     console.log(`value=${value}`);
-    this.router.navigateByUrl(`/search/${value}`);
+    // Trim the search string and replace spaces with a delimiter like plus (+)
+    const trimmedValue = value.trim().replace(/\s+/g, '+');
+
+    // Navigate to the search route with the trimmed and processed value
+    this.router.navigateByUrl(`/products/search/${trimmedValue}`);
   }
 }

@@ -16,13 +16,14 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'products/:sku', component: ProductDetailsComponent},
-  {path: 'search/:keyword', component: ProductListComponent},
-  {path: 'categories/:slug', component: ProductListComponent},
+  {path: 'products/search/:keyword', component: ProductListComponent},
+  {path: 'products/by-category/:category', component: ProductListComponent},
   {path: 'categories', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: '', redirectTo: '/products', pathMatch: 'full'},
@@ -38,7 +39,8 @@ const routes: Routes = [
     ProductDetailsComponent,
     CartStatusComponent,
     CartDetailsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

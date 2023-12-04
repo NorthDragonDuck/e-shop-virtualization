@@ -43,19 +43,23 @@ public class OrderItem {
     @Column(name="quantity")
     private int quantity;
 
-    @Column(name="product_id")
-    private Long productId;
-
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
+    @Column(name="product_id")
+    private String productId;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof OrderItem)) return false;
+        OrderItem that = (OrderItem) o;
+        return id != null && id.equals(that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return 31;
+    }
 }
-
-
-
-
-
-
-
-

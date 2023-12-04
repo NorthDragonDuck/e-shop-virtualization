@@ -1,3 +1,4 @@
+User
 <div class="main-content">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
@@ -25,7 +26,7 @@
 
                                 <div class="row no-gutters">
                                     <div class="col">
-                                        <button (click)="incrementQuantity(tempCartItem)" class="btn btn-primary btn-sm">
+                                        <button (click)="incrementQuantity(tempCartItem)" class="btn-primary-inc">
                                             <i class="fas fa-plus"></i>
                                         </button>
                                     </div>
@@ -35,7 +36,7 @@
                                     </div>
 
                                     <div class="col">
-                                        <button (click)="decrementQuantity(tempCartItem)" class="btn btn-primary btn-sm">
+                                        <button (click)="decrementQuantity(tempCartItem)" class="btn-primary-dec">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                     </div>
@@ -46,7 +47,7 @@
                             </div>
 
                             <div>
-                                <button (click)="remove(tempCartItem)" class="btn btn-primary btn-sm mt-2">Remove</button>
+                                <button (click)="remove(tempCartItem)" class="btn-primary">Remove</button>
                             </div>
 
                             <p class="mt-2">Subtotal: {{ tempCartItem.quantity! * tempCartItem?.unitPrice! | currency: 'USD' }}</p>
@@ -61,7 +62,7 @@
                             <p>Total Price: {{ totalPrice | currency: 'USD' }}</p>
 
                             <div>
-                                <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+                                <a routerLink="/checkout" class="btn-primary-checkout">Checkout</a>
                             </div>
                         </td>
                     </tr>

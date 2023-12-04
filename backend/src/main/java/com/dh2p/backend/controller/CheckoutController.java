@@ -1,21 +1,19 @@
 package com.dh2p.backend.controller;
 
-import com.dh2p.backend.dto.Purchase;
-import com.dh2p.backend.dto.PurchaseResponse;
+import com.dh2p.backend.model.Purchase;
+import com.dh2p.backend.model.PurchaseResponse;
 import com.dh2p.backend.service.CheckoutService;
-import org.springframework.web.bind.annotation.*;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("http://vhost1.localhost")
 @RestController
-@RequestMapping("/api/checkout")
+@RequestMapping("/checkout")
 public class CheckoutController {
 
+    @Autowired
     private CheckoutService checkoutService;
-
-    public CheckoutController(CheckoutService checkoutService) {
-        this.checkoutService = checkoutService;
-    }
 
     @PostMapping("/purchase")
     public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
@@ -26,12 +24,5 @@ public class CheckoutController {
     }
 
 }
-
-
-
-
-
-
-
 
 

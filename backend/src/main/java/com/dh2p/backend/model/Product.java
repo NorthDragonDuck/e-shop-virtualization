@@ -31,11 +31,11 @@ import java.util.Date;
 public class Product {
 
     @Id
-    @Column(name = "sku")
+    @Column(name = "sku", nullable = false)
     private String sku;
 
     @ManyToOne
-    @JoinColumn(name = "category_slug", referencedColumnName = "slug", nullable = false)
+    @JoinColumn(name = "category", referencedColumnName = "slug", nullable = false)
     private ProductCategory category;
     
     @Column(name = "name")

@@ -22,11 +22,10 @@ services:
     networks:
       - net1
 
-      
-  # Define the MongoDB service
+  # Define the Postgre db service
   database:
     container_name: postgres
-    build: ./database # Path to the directory with the Dockerfile
+    build: ./database
     environment:
       POSTGRES_USER: mbsuperadmin
       POSTGRES_PASSWORD: NeClownLast44*404*#Hahaha24-LS
@@ -35,9 +34,27 @@ services:
       - db_data:/var/lib/postgresql/data
       - ./scripts/init-postgres.sql:/docker-entrypoint-initdb.d/10-init-postgres.sql
       - ./scripts/insert-data.sql:/docker-entrypoint-initdb.d/20-insert-data.sql
-      
     networks:
       - net1
+      - net2
+
+  backup:
+    container_name: backup
+    build: ./backup
+    volumes:
+      - backup_data:/backup
+    environment:
+      POSTGRES_USER: mbsuperadmin
+      POSTGRES_PASSWORD: NeClownLast44*404*#Hahaha24-LS
+      POSTGRES_DB: dh2p_database
+      DATABASE_HOST: database
+      PGPASSWORD: NeClownLast44*404*#Hahaha24-LS
+      PGDATABASE: dh2p_database
+    depends_on:
+      - database
+    networks:
+      - net1
+      - net2
 
   # pgadmin:
     # image: dpage/pgadmin4
@@ -46,9 +63,12 @@ services:
       # PGADMIN_DEFAULT_PASSWORD: admin
     # ports:
       # - "5050:80"
+    # depends_on:
+      # - database
     # networks:
       # - net1
 
+  # Define the vhost1 service
   vhost1:
     container_name: vhost1
     build: ./vhost1
@@ -85,6 +105,7 @@ services:
 
 volumes:
   db_data:
+  backup_data:
 
 networks:
   net1:
