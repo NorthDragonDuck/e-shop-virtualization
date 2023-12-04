@@ -146,16 +146,28 @@ aside.menu-sidebar.d-none.d-lg-block.clr {
  * ----------------------------
  */
 
-.header-desktop {
-    background: #ffffff;
-    border-bottom: 1px solid rgb(236, 26, 26);
-    /* Added bottom border */
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 200px;
-    height: 86px;
-    z-index: 3
+.header-desktop{
+    background:#ffffff;
+    border-bottom: 1px solid  rgb(236, 26, 26); /* Added bottom border */
+    position:fixed;
+    top:0;
+    right:0;
+    left:200px;
+    height:86px;
+    z-index:3;
+}
+
+.header-desktop .section-content{
+    overflow:visible;
+    position:absolute;
+    top:50%;
+    left:0;
+    right:0;
+    -webkit-transform:translateY(-50%);
+    -moz-transform:translateY(-50%);
+    -ms-transform:translateY(-50%);
+    -o-transform:translateY(-50%);
+    transform:translateY(-50%)
 }
 
 .header-desktop .section-content {
@@ -1140,10 +1152,10 @@ footer {
     transition: background-color 0.3s;
     width: 130px;
     margin-top: 10px;
-    border-radius: 10px;
-}
-
-.newsletter-form button:hover {
+    border-radius: 2px;
+  }
+  
+  .newsletter-form button:hover {
     background: rgb(121, 121, 121);
 }
 
