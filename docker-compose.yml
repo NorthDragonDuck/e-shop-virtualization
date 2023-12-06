@@ -16,7 +16,7 @@ services:
   # Define the frontend service
   frontend:
     container_name: frontend
-    build: ./frontend # Path to the directory with the Dockerfile for Angular
+    build: ./frontend
     ports:
       - "4200:80" # Map port 80 in the container to port 4200 on the host
     networks:
@@ -38,6 +38,7 @@ services:
       - net1
       - net2
 
+  # Define the backup service
   backup:
     container_name: backup
     build: ./backup
@@ -56,24 +57,11 @@ services:
       - net1
       - net2
 
-  # pgadmin:
-    # image: dpage/pgadmin4
-    # environment:
-      # PGADMIN_DEFAULT_EMAIL: admin@example.com
-      # PGADMIN_DEFAULT_PASSWORD: admin
-    # ports:
-      # - "5050:80"
-    # depends_on:
-      # - database
-    # networks:
-      # - net1
-
   # Define the vhost1 service
   vhost1:
     container_name: vhost1
     build: ./vhost1
     depends_on:
-      # - pgadmin
       - backend
       - frontend
     networks:
@@ -98,6 +86,26 @@ services:
     depends_on:
       - vhost1
       - vhost2
+    networks:
+      - net1
+      - net2
+      - net3
+
+  # Define the Ansible automation service
+  ansible-automation:
+    container_name: ansible-automation
+    build:
+      context: ./ansible-automation
+      dockerfile: Dockerfile
+    command: sleep infinity
+    volumes:
+      - ./ansible-automation:/opt
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - vhost1
+      - vhost2
+      - database
+      - proxy
     networks:
       - net1
       - net2

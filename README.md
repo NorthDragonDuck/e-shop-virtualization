@@ -33,8 +33,8 @@ This documentation provides all necessary information to set up and manage the v
 - Stack: PostgreSQL
 - Location: database/
 - Initialization:
-  - Schema: scripts/init-postgres.sql
-  - Seed Data: scripts/insert-data.sql
+  Schema: scripts/init-postgres.sql
+  Seed Data: scripts/insert-data.sql
 - Build Command: docker-compose build database
 
 ### Backup Service
@@ -61,7 +61,7 @@ This documentation provides all necessary information to set up and manage the v
 
 - To manage the application:
 
-  - Open the terminal, navegate to the project directory using 'cd path/to/working_directory/e-shop-virtualization"
+  Open the terminal, navegate to the project directory using 'cd path/to/working_directory/e-shop-virtualization"
 
 - To start all services:
   docker-compose up. In case to not see all the logs directly specify the "-d" option
@@ -74,6 +74,15 @@ This documentation provides all necessary information to set up and manage the v
 
 - To rebuild specific service:
   docker build --no-cache "service-name". !Note: --no-chace option not nessesary
+
+### Ansible Automation Service
+
+- Location: ansible-automation/
+- Function: Automates management tasks for Docker containers, such as starting and stopping additional services like pgAdmin.
+- Usage: Execute Ansible playbooks from within the ansible-automation container to manage Docker containers.
+- Build Command: docker-compose build ansible-automation
+- Playbook Location: /opt/playbook.yml inside the container
+- Entry Command: To run playbooks, use 'docker-compose exec ansible-automation bash' followed by 'ansible-playbook /opt/playbook.yml -e "variable_name=value"'
 
 ### Networking
 
